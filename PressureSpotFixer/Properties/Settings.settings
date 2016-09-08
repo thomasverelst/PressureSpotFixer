@@ -9,7 +9,7 @@
       <Value Profile="(Default)">100</Value>
     </Setting>
     <Setting Name="filePath" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">fixerDummy.png</Value>
     </Setting>
   </Settings>
 </SettingsFile>

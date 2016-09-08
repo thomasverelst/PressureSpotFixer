@@ -23,6 +23,7 @@ namespace PressureSpotFixer
             /* Set on top of all */
             TopMost = true;
             ShowInTaskbar = false;
+            FormBorderStyle = FormBorderStyle.SizableToolWindow; // don't show in alt-tab
 
             /* Load image */
             loadImage();
@@ -194,6 +195,17 @@ namespace PressureSpotFixer
             }
         }
 
+        /* Don't show in alt-tab */
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                // turn on WS_EX_TOOLWINDOW style bit
+                cp.ExStyle |= 0x80;
+                return cp;
+            }
+        }
 
     }
 }

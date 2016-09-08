@@ -35,13 +35,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.setPositionButton = new System.Windows.Forms.Button();
             this.yNumericBox = new System.Windows.Forms.NumericUpDown();
             this.xNumericBox = new System.Windows.Forms.NumericUpDown();
             this.resetPrevPosButton = new System.Windows.Forms.Button();
             this.savePosButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.setPositionButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.yNumericBox)).BeginInit();
@@ -50,7 +50,7 @@
             // 
             // confirmButton
             // 
-            this.confirmButton.Location = new System.Drawing.Point(259, 238);
+            this.confirmButton.Location = new System.Drawing.Point(238, 238);
             this.confirmButton.Name = "confirmButton";
             this.confirmButton.Size = new System.Drawing.Size(75, 23);
             this.confirmButton.TabIndex = 0;
@@ -91,7 +91,7 @@
             this.groupBox1.Controls.Add(this.filePath);
             this.groupBox1.Location = new System.Drawing.Point(11, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(319, 51);
+            this.groupBox1.Size = new System.Drawing.Size(302, 51);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fixer image";
@@ -108,10 +108,20 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Location = new System.Drawing.Point(12, 69);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(319, 163);
+            this.groupBox2.Size = new System.Drawing.Size(301, 163);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Fixer position";
+            // 
+            // setPositionButton
+            // 
+            this.setPositionButton.Location = new System.Drawing.Point(185, 51);
+            this.setPositionButton.Name = "setPositionButton";
+            this.setPositionButton.Size = new System.Drawing.Size(96, 23);
+            this.setPositionButton.TabIndex = 15;
+            this.setPositionButton.Text = "Set as position";
+            this.setPositionButton.UseVisualStyleBackColor = true;
+            this.setPositionButton.Click += new System.EventHandler(this.setPositionButton_Click);
             // 
             // yNumericBox
             // 
@@ -185,21 +195,11 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "X:";
             // 
-            // setPositionButton
-            // 
-            this.setPositionButton.Location = new System.Drawing.Point(185, 51);
-            this.setPositionButton.Name = "setPositionButton";
-            this.setPositionButton.Size = new System.Drawing.Size(96, 23);
-            this.setPositionButton.TabIndex = 15;
-            this.setPositionButton.Text = "Set as position";
-            this.setPositionButton.UseVisualStyleBackColor = true;
-            this.setPositionButton.Click += new System.EventHandler(this.setPositionButton_Click);
-            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(346, 269);
+            this.ClientSize = new System.Drawing.Size(323, 269);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.confirmButton);

@@ -49,7 +49,7 @@ namespace PressureSpotFixer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("fixerDummy.png")]
         public string filePath {
             get {
                 return ((string)(this["filePath"]));
