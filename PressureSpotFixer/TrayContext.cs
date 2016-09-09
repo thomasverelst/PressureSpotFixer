@@ -13,26 +13,26 @@ namespace PressureSpotFixer
 
         public TrayContext()
         {
-            reloadFixerForm(false);
+            ReloadFixerForm(false);
 
 
             /* Add tray context menu items */
-            MenuItem configMenuItem = new MenuItem("Settings", new EventHandler(showSettings));
+            MenuItem configMenuItem = new MenuItem("Settings", new EventHandler(ShowSettings));
             MenuItem exitMenuItem = new MenuItem("Exit", new EventHandler(Exit));
 
             notifyIcon.Icon = PressureSpotFixer.Properties.Resources.AppIcon;
-            notifyIcon.DoubleClick += new EventHandler(showSettings);
+            notifyIcon.DoubleClick += new EventHandler(ShowSettings);
             notifyIcon.ContextMenu = new ContextMenu(new MenuItem[] { configMenuItem, exitMenuItem });
             notifyIcon.Visible = true;
         }
 
         /*********** Fixer Form ************/
 
-        public FixerForm getFixerForm(){
+        public FixerForm GetFixerForm(){
             return this.fixerForm;
         }
 
-        public void reloadFixerForm(bool draggable)
+        public void ReloadFixerForm(bool draggable)
         {
             if (this.fixerForm != null)
             {
@@ -42,14 +42,14 @@ namespace PressureSpotFixer
 
             if (settingsForm != null)
             {
-                this.getFixerForm().LocationChanged += new System.EventHandler(settingsForm.fixerForm_LocationChanged);
+                this.GetFixerForm().LocationChanged += new System.EventHandler(settingsForm.FixerForm_LocationChanged);
             }
             fixerForm.Show();
         }
 
         /*********** Settings Form ************/
 
-        void showSettings(object sender, EventArgs e)
+        void ShowSettings(object sender, EventArgs e)
         {
             if (settingsForm == null)
                 settingsForm = new SettingsForm(this);
@@ -59,12 +59,12 @@ namespace PressureSpotFixer
             else
                 settingsForm.Show();
             
-            reloadFixerForm(true);
+            ReloadFixerForm(true);
         }
 
-        public void hideSettings()
+        public void HideSettings()
         {
-            reloadFixerForm(false);
+            ReloadFixerForm(false);
             settingsForm = null;
             //GC.Collect();
         }

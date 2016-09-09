@@ -16,7 +16,7 @@ namespace PressureSpotFixer
             filePath.Text = Properties.Settings.Default.filePath;
 
             /* Update form location when form is moved */
-            updatePosNumericBox(); // and update the numeric boxes now
+            UpdatePosNumericBox(); // and update the numeric boxes now
         } 
         
         private void SettingsForm_Load(object sender, EventArgs e)
@@ -24,40 +24,40 @@ namespace PressureSpotFixer
 
         }
 
-        public void fixerForm_LocationChanged(object sender, EventArgs e)
+        public void FixerForm_LocationChanged(object sender, EventArgs e)
         {
-            updatePosNumericBox();   
+            UpdatePosNumericBox();   
         }
 
-        private void updatePosNumericBox()
+        private void UpdatePosNumericBox()
         {
-            xNumericBox.Value = getFixerForm().Location.X;
-            yNumericBox.Value = getFixerForm().Location.Y;
+            xNumericBox.Value = GetFixerForm().Location.X;
+            yNumericBox.Value = GetFixerForm().Location.Y;
         }
 
-        private TrayContext getTrayContext()
+        private TrayContext GetTrayContext()
         {
             return this.trayContext;
         }
 
-        private FixerForm getFixerForm()
+        private FixerForm GetFixerForm()
         {
-            return this.getTrayContext().getFixerForm();
+            return this.GetTrayContext().GetFixerForm();
         }
 
        
 
-        private void confirmButton_Click(object sender, EventArgs e)
+        private void ConfirmButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
         private void SettingsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            getTrayContext().hideSettings();
+            GetTrayContext().HideSettings();
         }
 
-        private void selectImgButton_Click(object sender, EventArgs e)
+        private void SelectImgButton_Click(object sender, EventArgs e)
         {
             string path;
             OpenFileDialog file = new OpenFileDialog();
@@ -68,23 +68,23 @@ namespace PressureSpotFixer
                 Properties.Settings.Default.filePath = path;
                 Properties.Settings.Default.Save();
 
-                this.getTrayContext().reloadFixerForm(true);
+                this.GetTrayContext().ReloadFixerForm(true);
             }
         }
 
-        private void savePosButton_Click(object sender, EventArgs e)
+        private void SavePositionButton_Click(object sender, EventArgs e)
         {       
-            getFixerForm().savePosition();
+            GetFixerForm().SavePosition();
         }
 
-        private void resetPrevPosButton_Click(object sender, EventArgs e)
+        private void PreviousPositionButton_Click(object sender, EventArgs e)
         {
-            getTrayContext().reloadFixerForm(true);
+            GetTrayContext().ReloadFixerForm(true);
         }
 
-        private void setPositionButton_Click(object sender, EventArgs e)
+        private void SetPositionButton_Click(object sender, EventArgs e)
         {
-            getFixerForm().setPos((int) xNumericBox.Value, (int) yNumericBox.Value);
+            GetFixerForm().SetPosition((int) xNumericBox.Value, (int) yNumericBox.Value);
         }
     }
 }

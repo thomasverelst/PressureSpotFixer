@@ -57,7 +57,7 @@
             this.confirmButton.TabIndex = 0;
             this.confirmButton.Text = "OK";
             this.confirmButton.UseVisualStyleBackColor = true;
-            this.confirmButton.Click += new System.EventHandler(this.confirmButton_Click);
+            this.confirmButton.Click += new System.EventHandler(this.ConfirmButton_Click);
             // 
             // selectFileButton
             // 
@@ -67,7 +67,7 @@
             this.selectFileButton.TabIndex = 3;
             this.selectFileButton.Text = "Select image file";
             this.selectFileButton.UseVisualStyleBackColor = true;
-            this.selectFileButton.Click += new System.EventHandler(this.selectImgButton_Click);
+            this.selectFileButton.Click += new System.EventHandler(this.SelectImgButton_Click);
             // 
             // filePath
             // 
@@ -122,7 +122,7 @@
             this.setPositionButton.TabIndex = 15;
             this.setPositionButton.Text = "Set as position";
             this.setPositionButton.UseVisualStyleBackColor = true;
-            this.setPositionButton.Click += new System.EventHandler(this.setPositionButton_Click);
+            this.setPositionButton.Click += new System.EventHandler(this.SetPositionButton_Click);
             // 
             // yNumericBox
             // 
@@ -166,7 +166,7 @@
             this.resetPrevPosButton.TabIndex = 12;
             this.resetPrevPosButton.Text = "Reset to Previous";
             this.resetPrevPosButton.UseVisualStyleBackColor = true;
-            this.resetPrevPosButton.Click += new System.EventHandler(this.resetPrevPosButton_Click);
+            this.resetPrevPosButton.Click += new System.EventHandler(this.PreviousPositionButton_Click);
             // 
             // savePosButton
             // 
@@ -176,7 +176,7 @@
             this.savePosButton.TabIndex = 11;
             this.savePosButton.Text = "Save current position";
             this.savePosButton.UseVisualStyleBackColor = true;
-            this.savePosButton.Click += new System.EventHandler(this.savePosButton_Click);
+            this.savePosButton.Click += new System.EventHandler(this.SavePositionButton_Click);
             // 
             // label4
             // 

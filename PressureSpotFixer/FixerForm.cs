@@ -26,14 +26,14 @@ namespace PressureSpotFixer
             FormBorderStyle = FormBorderStyle.SizableToolWindow; // don't show in alt-tab
 
             /* Load image */
-            loadImage();
+            LoadImage();
         }
 
         /// <summary>
         /// Draggable getter
         /// </summary>
         /// <returns></returns>
-        public bool isDraggable()
+        public bool IsDraggable()
         {
             return this.draggable;
         }
@@ -45,7 +45,7 @@ namespace PressureSpotFixer
         /// </summary>
         /// <param name="x">x value</param>
         /// <param name="y">y value</param>
-        public void setPos(int x, int y)
+        public void SetPosition(int x, int y)
         {
             this.Location = new Point(x, y);
         }
@@ -53,9 +53,9 @@ namespace PressureSpotFixer
         /// <summary>
         /// Resets the position of the fixer to a known one (100 ,100)
         /// </summary>
-        public void resetPosition()
+        public void ResetPosition()
         {
-            setPos(100, 100);
+            SetPosition(100, 100);
         }
 
         /// <summary>
@@ -63,13 +63,13 @@ namespace PressureSpotFixer
         /// </summary>
         private void loadPosition()
         {
-            setPos(Properties.Settings.Default.Xpos, Properties.Settings.Default.Ypos);
+            SetPosition(Properties.Settings.Default.Xpos, Properties.Settings.Default.Ypos);
         }
         
         /// <summary>
         /// Save current position to settings
         /// </summary>
-        public void savePosition()
+        public void SavePosition()
         {
             Properties.Settings.Default.Xpos = this.Location.X;
             Properties.Settings.Default.Ypos = this.Location.Y;
@@ -82,9 +82,9 @@ namespace PressureSpotFixer
         /// <summary>
         /// Loads fixer image path from settings and calls setImage function
         /// </summary>
-        protected void loadImage()
+        protected void LoadImage()
         {
-            setImage(Properties.Settings.Default.filePath);
+            SetImage(Properties.Settings.Default.filePath);
         }
 
         /// <summary>
@@ -92,15 +92,15 @@ namespace PressureSpotFixer
         /// Marker will be added if Settings Form is open (so fixer is draggable)
         /// </summary>
         /// <param name="filePath">file path as string</param>
-        private void setImage(string filePath)
+        private void SetImage(string filePath)
         {
             Bitmap newBitmap;
             try
             {
                 newBitmap = Image.FromFile(filePath) as Bitmap;
 
-                if (this.isDraggable())
-                    newBitmap = addMarker(newBitmap);
+                if (this.IsDraggable())
+                    newBitmap = AddMarker(newBitmap);
 
                 this.SetBitmap(newBitmap, 255);
             }
@@ -126,7 +126,7 @@ namespace PressureSpotFixer
         /// </summary>
         /// <param name="bmp">bitmap</param>
         /// <returns>bitmap with marker</returns>
-        public static Bitmap addMarker(Bitmap bmp)
+        public static Bitmap AddMarker(Bitmap bmp)
         {
             for (int y = 0; y < 20; y++)
             {
@@ -144,7 +144,7 @@ namespace PressureSpotFixer
         /// <param name="m"></param>
         protected override void WndProc(ref Message m)
         {
-            if (isDraggable() && m.Msg == 0x0084 /*WM_NCHITTEST*/)
+            if (IsDraggable() && m.Msg == 0x0084 /*WM_NCHITTEST*/)
             {
                 m.Result = (IntPtr)2;	// HTCLIENT
                 return;
@@ -184,7 +184,7 @@ namespace PressureSpotFixer
 
         protected override void OnShown(EventArgs e)
         {
-            if (!isDraggable())
+            if (!IsDraggable())
             {
 
                 base.OnShown(e);
